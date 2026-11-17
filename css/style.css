@@ -44,6 +44,11 @@ body {
     color: rgb(255 255 255 / 82%) !important;
 }
 
+.site-footer {
+    background: var(--cnc-gradient);
+    color: #fff;
+}
+
 #material-tabs {
     border-bottom-color: var(--cnc-border);
 }
