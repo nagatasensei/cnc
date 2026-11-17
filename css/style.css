@@ -1,13 +1,12 @@
 :root {
-    --cnc-pink: #c51b68;
-    --cnc-purple: #4a0b61;
-    --cnc-blue: #3517c5;
-    --cnc-ink: #2e1738;
-    --cnc-muted: #695c70;
+    --cnc-navy: #192b64;
+    --cnc-violet: #7d83f6;
+    --cnc-ink: #192b64;
+    --cnc-muted: #5f6b8a;
     --cnc-surface: #ffffff;
-    --cnc-background: #f7f4fa;
-    --cnc-border: #e6ddeb;
-    --cnc-gradient: linear-gradient(115deg, var(--cnc-pink), var(--cnc-purple) 58%, var(--cnc-blue));
+    --cnc-background: #f4f5ff;
+    --cnc-border: #dce0f0;
+    --cnc-gradient: linear-gradient(115deg, #192b64, #263d85);
 }
 
 @font-face {
@@ -22,13 +21,14 @@ body {
     background-color: var(--cnc-background);
     color: var(--cnc-ink);
     font-family: Arial, sans-serif;
+    padding-bottom: calc(8rem + env(safe-area-inset-bottom));
 }
 
 .site-header {
     padding: clamp(1.75rem, 5vw, 3.5rem) 1.25rem;
     border-radius: 1rem;
     background: var(--cnc-gradient);
-    box-shadow: 0 0.75rem 2rem rgb(74 11 97 / 18%);
+    box-shadow: 0 0.75rem 2rem rgb(25 43 100 / 18%);
     color: #fff;
 }
 
@@ -45,8 +45,17 @@ body {
 }
 
 .site-footer {
+    position: fixed;
+    z-index: 1030;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: var(--cnc-gradient);
     color: #fff;
+    padding: 0.75rem 0 calc(0.75rem + env(safe-area-inset-bottom));
+    font-size: 0.875rem;
+    line-height: 1.4;
+    box-shadow: 0 -0.25rem 1rem rgb(25 43 100 / 12%);
 }
 
 #material-tabs {
@@ -56,14 +65,14 @@ body {
 #material-tabs .nav-link {
     border-color: transparent;
     border-radius: 0.65rem 0.65rem 0 0;
-    color: var(--cnc-purple);
+    color: var(--cnc-navy);
     font-weight: 600;
     transition: color 160ms ease, background-color 160ms ease;
 }
 
 #material-tabs .nav-link:hover {
-    background-color: #eee5f3;
-    color: var(--cnc-pink);
+    background-color: #e9ebfb;
+    color: var(--cnc-navy);
 }
 
 #material-tabs .nav-link.active {
@@ -73,25 +82,25 @@ body {
 }
 
 #material-tabs .nav-link:focus-visible {
-    outline: 3px solid var(--cnc-pink);
+    outline: 3px solid var(--cnc-violet);
     outline-offset: 2px;
 }
 
 #material-tab-content {
     border-color: var(--cnc-border) !important;
     background-color: var(--cnc-surface);
-    box-shadow: 0 0.5rem 1.5rem rgb(46 23 56 / 6%);
+    box-shadow: 0 0.5rem 1.5rem rgb(25 43 100 / 6%);
 }
 
 #material-tab-content h2 {
-    color: var(--cnc-purple);
+    color: var(--cnc-navy);
 }
 
 .profile-photo {
     width: 200px;
     height: 200px;
     border: 4px solid #fff !important;
-    box-shadow: 0 0.5rem 1.5rem rgb(74 11 97 / 20%);
+    box-shadow: 0 0.5rem 1.5rem rgb(25 43 100 / 20%);
 }
 
 .list-group-item {
@@ -99,12 +108,12 @@ body {
 }
 
 .list-group-item a {
-    color: var(--cnc-purple);
+    color: var(--cnc-navy);
     font-weight: 700;
 }
 
 .list-group-item a:hover {
-    color: var(--cnc-pink);
+    color: var(--cnc-navy);
 }
 
 .list-group-item p {
