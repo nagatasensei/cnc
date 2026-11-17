@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prof.Leandro Nagata - CNC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="css/style.css?v=ceab67a" rel="stylesheet">
+    <link href="css/style.css?v=menu-mobile-20261117" rel="stylesheet">
 </head>
 <body>
     <main class="container py-4 py-md-5">
@@ -15,8 +15,12 @@
                     <h1 class="display-5 fw-bold">Prof.Leandro Nagata - CNC</h1>
                     <h2 class="h4 text-body-secondary mt-3">Material Complementar</h2>
                 </header>
-                <nav aria-label="Navegação principal">
-                    <ul class="nav nav-tabs flex-column flex-sm-row" id="material-tabs" role="tablist">
+                <nav aria-label="Navegação principal" class="site-navigation">
+                    <button class="site-menu-toggle d-lg-none mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#material-tabs-collapse" aria-controls="material-tabs-collapse" aria-expanded="false" aria-label="Abrir menu de navegação">
+                        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+                    </button>
+                    <div class="collapse d-lg-block" id="material-tabs-collapse">
+                    <ul class="nav nav-tabs justify-content-center" id="material-tabs" role="tablist">
                         <li class="nav-item">
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-pane" type="button" role="tab" aria-controls="home-pane" aria-selected="true">Home</button>
                         </li>
@@ -29,9 +33,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <button class="nav-link" id="documentacao-tab" data-bs-toggle="tab" data-bs-target="#documentacao-pane" type="button" role="tab" aria-controls="documentacao-pane" aria-selected="false">Documentação</button>
+                        </li>
+                        <li class="nav-item">
                             <button class="nav-link" id="simuladores-tab" data-bs-toggle="tab" data-bs-target="#simuladores-pane" type="button" role="tab" aria-controls="simuladores-pane" aria-selected="false">Simuladores</button>
                         </li>
                     </ul>
+                    </div>
                 </nav>
                 <div class="tab-content border border-top-0 rounded-bottom p-3 p-md-4" id="material-tab-content">
                     <section id="home-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
@@ -68,6 +76,11 @@
                             <iframe src="https://www.youtube.com/embed/videoseries?si=HsY_SrEa2DOadIWt&amp;list=PLC-wC8tIs4q4" title="Playlist de vídeos de usinagem CNC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </section>
+                    <section id="documentacao-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="documentacao-tab" tabindex="0">
+                        <h2 class="h5 mb-3">Documentação</h2>
+                        <p class="mb-4">Consulte este material de suporte para revisar posteriormente os conteúdos da aula e aprofundar seus estudos sobre usinagem CNC.</p>
+                        <iframe class="document-viewer" src="doc/folheto_CNC_fundamentos.pdf" title="Documento de apoio: fundamentos de CNC" loading="lazy"></iframe>
+                    </section>
                     <section id="simuladores-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="simuladores-tab" tabindex="0">
                         <h2 class="h5">Simuladores</h2>
                         <ul class="list-group mt-3">
@@ -89,5 +102,14 @@
         <p class="container mb-0">Fabricação Mecânica - Usinagem CNC - desenvolvido por Prof.Leandro Nagata - Todos os direitos reservados</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll('#material-tabs [data-bs-toggle="tab"]').forEach(function (tab) {
+            tab.addEventListener('shown.bs.tab', function () {
+                if (window.matchMedia('(max-width: 991.98px)').matches) {
+                    bootstrap.Collapse.getOrCreateInstance(document.getElementById('material-tabs-collapse'), { toggle: false }).hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
